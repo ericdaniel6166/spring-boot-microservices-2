@@ -20,14 +20,14 @@ import java.util.Map;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "spring.kafka", name = "enabled")
-public class AppKafkaProducerConfig {
+public class KafkaProducerConfig {
 
-    final AppKafkaProperties appKafkaProperties;
+    final KafkaProperties kafkaProperties;
 
     @Bean
     public ProducerFactory<String, Object> producerFactory() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, appKafkaProperties.getBootstrapServers());
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class.getName());
         return new DefaultKafkaProducerFactory<>(props);

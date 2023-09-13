@@ -14,6 +14,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PROTECTED)
-public class AppEvent implements Serializable {
+public class Event implements Serializable {
     Object payload;
 }

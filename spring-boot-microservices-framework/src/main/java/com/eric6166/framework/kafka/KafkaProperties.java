@@ -11,14 +11,9 @@ import org.springframework.context.annotation.Configuration;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Data
 @ConditionalOnProperty(prefix = "spring.kafka", name = "enabled")
-public class AppKafkaProperties {
+public class KafkaProperties {
 
     @Value("${spring.kafka.bootstrap-servers}")
     String bootstrapServers;
-
-    @Value("${spring.kafka.consumer.group-id}")
-    String groupId;
-
-
 
 }
