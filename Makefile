@@ -37,6 +37,7 @@ local-down:
 
 maven-install:
 	echo "Maven install"
+	echo "spring-boot-microservices"
 	./mvnw clean install -Dmaven.test.skip
 	echo "api-gateway"
 	cd ../api-gateway-2; \
