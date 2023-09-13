@@ -1,6 +1,8 @@
 package com.eric6166.framework.model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -15,17 +17,18 @@ import java.time.LocalDateTime;
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@FieldDefaults(level = AccessLevel.PROTECTED)
 public abstract class BaseEntity<U> implements Serializable {
 
     @CreatedBy
-    protected U createdBy;
+    U createdBy;
 
     @CreatedDate
-    protected LocalDateTime createdDate;
+    LocalDateTime createdDate;
 
     @LastModifiedBy
-    protected U lastModifiedBy;
+    U lastModifiedBy;
 
     @LastModifiedDate
-    protected LocalDateTime lastModifiedDate;
+    LocalDateTime lastModifiedDate;
 }
