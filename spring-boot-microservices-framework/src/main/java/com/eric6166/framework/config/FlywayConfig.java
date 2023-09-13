@@ -19,7 +19,7 @@ import java.util.Optional;
 public class FlywayConfig {
 
     @Value("${spring.flyway.baseline-on-migrate:true}")
-    boolean baselineOnMigrate;
+    Boolean baselineOnMigrate;
 
     @Value("${spring.flyway.baseline-version}")
     String baselineVersion;
@@ -28,7 +28,7 @@ public class FlywayConfig {
     String locations;
 
     @Value("${spring.flyway.validate-on-migrate:true}")
-    boolean validateOnMigrate;
+    Boolean validateOnMigrate;
 
     @Value("${spring.flyway.table}")
     String table;
